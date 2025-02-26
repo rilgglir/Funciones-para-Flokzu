@@ -47,7 +47,6 @@ function estados(){
     ocultarDireccion();
     var estado = Flokzu.getFieldValue([[Estado actual del estudiante]]);
     var tipo = Flokzu.getFieldValue([[Tipo de solicitud]]);
-    Flokzu.setHidden([[¿El egresado desea continuar con el proceso de titulación?]]);
     Flokzu.setHidden([[Fecha de cancelacion]]);
     Flokzu.setHidden([[Motivo de la solicitud]]);
     editaInfo(" ");
@@ -68,7 +67,7 @@ function estados(){
                     editaInfo("El préstamo de documentos aplica únicamente para alumnos MATRICULADOs.");
                     validar(false);
                     break;
-                case "MATRICULADO":
+                /*case "MATRICULADO":
                     Flokzu.setRequired([[Motivo de la solicitud]]);
                     editaInfo("Estado aceptado");
                     validar(true);
@@ -76,7 +75,7 @@ function estados(){
                 case "EGRESADO":
                     editaInfo("No aplica prestamo, solo devolución.");
                     validar(false);
-                    break;               
+                    break;*/               
             }
 
         }else if(tipo == "Devolución de documentos"){
@@ -88,18 +87,20 @@ function estados(){
                     break;
                 case "Baja Definitiva":
                     editaInfo("Estado aceptado");
+                    Flokzu.setEditable([[Atiende primero:]]);
+                    Flokzu.setFieldValue([[Atiende primero:]], "ArchivoExpediente");
+                    Flokzu.setReadOnly([[Atiende primero:]]);
                     validar(true);
                     break;
-                case "MATRICULADO":
+                /*case "MATRICULADO":
                     editaInfo("La devolución de documentos aplica únicamente para alumnos con baja definitiva.");
                     validar(false);
                     break;     
                 case "EGRESADO":
-                    editaInfo("Para egresados, la devolución solo aplica si el interesado decide no continuar con el proceso de titulación. Si desea seguir adelante con la titulación, deberá comunicarse al correo titulacion@utel.mx");
-                    Flokzu.setRequired([[¿El egresado desea continuar con el proceso de titulación?]]);
-                    continuaTitulacion();
+                    editaInfo("Estado aceptado");
+                    validar(true);
 
-                    break;               
+                    break;          */     
             }
 
         }else if(tipo == "Escaneo de documento"){
@@ -187,9 +188,6 @@ function ocultarDireccion(){
     Flokzu.setHidden([[Estado]]);
 }
 
-function continuaTitulacion(){
-    (Flokzu.getFieldValue([[¿El egresado desea continuar con el proceso de titulación?]])=="NO")? validar(true):validar(false);
-}
 function editaInfo(info){
     Flokzu.setEditable([[Información sobre requerimiento]]);
     Flokzu.setFieldValue([[Información sobre requerimiento]],info);
@@ -311,4 +309,3 @@ Flokzu.onChange([[Fecha tentativa para recoger]], validarFechaRecoger);
 Flokzu.onChange([[Tipo de solicitud]],estados);
 Flokzu.onChange([[Estado actual del estudiante]],estados);
 Flokzu.onChange([[Tipo de entrega]],fechaTentativa);
-Flokzu.onChange([[¿El egresado desea continuar con el proceso de titulación?]],continuaTitulacion);
