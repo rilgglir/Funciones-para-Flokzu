@@ -51,7 +51,7 @@ function consultaDocs(){
 
 function consultaPostal(){
   
-    var postal = Flokzu.getFieldValue([[Código postal]]);
+    var postal = parseInt(Flokzu.getFieldValue([[Código postal]]));
     var generico = "https://api-consultas-flokzu.vercel.app/api/postal/"+postal; //ambiente de pruebas, debe sustituirse por la URL de producción, datos no son de estudiantes reales
     var xhr = new XMLHttpRequest();
 
@@ -88,7 +88,7 @@ function activaMatriz(){
     && Flokzu.getFieldValue([[Estatus de docs digitales]]) != "" 
     && Flokzu.getFieldValue([[Estatus de docs fisicos]]) != "" 
     && Flokzu.getFieldValue([[Estatus de titulacion]]) != ""
-    && Flokzu.getFieldValue([[Tipo de entrega]]) == "A domicilio"){
+    && Flokzu.getFieldValue([[Tipo de entrega]]) != ""){
 
         Flokzu.setEditable([[Atiende primero:]]);
         matriz();

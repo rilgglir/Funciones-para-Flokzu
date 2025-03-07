@@ -1,0 +1,135 @@
+Object { tenantName: "test_flokzu", reference: "CAMMAT-18684", documentCreator: "system", dateCreated: "2025-03-03 12:30:10", info: "", tags: (1) […], downloadKey: "cd299f722d5e46b7762bcec9c1879422", fields: (46) […], lockStatus: 0, activeTasks: (1) […] }
+​
+activeTasks: Array [ {…} ]
+​​
+0: Object { name: "[SER] [APLICACION] [CAMBIO DE MATERIAS]", creationDate: "2025-03-03 22:32", dueDate: "2025-03-05 22:32", … }
+​​​
+assignedRoles: Array [ "Servicios escolares" ]
+​​​
+assignedUsers: Array []
+​​​
+creationDate: "2025-03-03 22:32"
+​​​
+dueDate: "2025-03-05 22:32"
+​​​
+name: "[SER] [APLICACION] [CAMBIO DE MATERIAS]"
+​​​
+<prototype>: Object { … }
+​​
+length: 1
+​​
+<prototype>: Array []
+​
+dateCreated: "2025-03-03 12:30:10"
+​
+documentCreator: "system"
+​
+downloadKey: "cd299f722d5e46b7762bcec9c1879422"
+​
+fields: Array(46) [ {…}, {…}, {…}, … ]
+0: Object { "A.analista SER": "" }
+​​​
+"A.analista SER": ""
+​​​
+<prototype>: Object { … }
+​​
+1: Object { "Comentario de SER": "<p>BU:No sincroniza</p>\r\n<p>&nbsp;</p>" }
+​​
+2: Object { "Agente de academia": "" }
+​​
+3: Object { "Correo agente academia": "" }
+​​
+4: Object { "Comentario de academia": "" }
+​​
+5: Object { "Comentario del solicitante": "" }
+​​
+6: Object { "Area del solicitante": "Atn Alumnos (inbound)" }
+​​
+7: Object { "Correo del solicitante": "jvargaslin@utel.edu.mx" }
+​​
+8: Object { Matricula: "010697254" }
+​​
+9: Object { "Nombre del estudiante": "Fernando Alfredo Garcia Hernandez" }
+​​
+10: Object { "Correo del estudiante": "fernandojycr@gmail.com" }
+​​
+11: Object { "Tipo de solicitud": "Solicitud del Estudiante" }
+​​
+12: Object { "Correo del tutor asignado": "" }
+​​
+13: Object { Supervisor: "" }
+​​
+14: Object { "Correo del supervisor": "" }
+​​
+15: Object { Nivel: "Licenciatura" }
+​​
+16: Object { Campus: "UTEL HIGHER" }
+​​
+17: Object { Experiencia: "Online" }
+​​
+18: Object { Programa: "628" }
+​​
+19: Object { "Clave de programa": "UTLLIPOFED" }
+​​
+20: Object { "Numero de materias a cambiar": "3" }
+​​
+21: Object { "Materia para baja 1": "1253" }
+​​
+22: Object { "Materia para baja 2": "1256" }
+​​
+23: Object { "Materia para baja 3": "489" }
+​​
+24: Object { "Materia para baja 4": "" }
+​​
+25: Object { "Clave para baja 1": "L1PS102" }
+​​
+26: Object { "Clave para baja 2": "L1C116" }
+​​
+27: Object { "Clave para baja 3": "L1C115" }
+​​
+28: Object { "Clave para baja 4": "" }
+​​
+29: Object { "Materia para alta 1": "936" }
+​​
+30: Object { "Materia para alta 2": "225" }
+​​
+31: Object { "Materia para alta 3": "189" }
+​​
+32: Object { "Materia para alta 4": "" }
+​​
+33: Object { "Clave para alta 1": "L1OR201" }
+​​
+34: Object { "Clave para alta 2": "L1OR202" }
+​​
+35: Object { "Clave para alta 3": "L1OR203" }
+​​
+36: Object { "Clave para alta 4": "" }
+​​
+37: Object { Descripcion: "solicita el cambio de materias ya que realizara equivalencia y estas materias que tiene asignadas, están sujetas a este proceso" }
+​​
+38: Object { "Evidencia de solicitud": {…} }
+​​
+39: Object { "Materia(s) para baja": "" }
+​​
+40: Object { "Clave(s) de materia(s) para baja": "" }
+​​
+41: Object { "Grupo de la materia actual": "" }
+​​
+42: Object { "Materia(s) para alta": "" }
+​​
+43: Object { "Clave(s) de materia(s) para alta": "" }
+​​
+44: Object { automSER: "" }
+​​
+45: Object { AutomClav: "628" }
+info: ""
+​
+lockStatus: 0
+​
+reference: "CAMMAT-18684"
+​
+tags: Array [ "" ]
+​
+tenantName: "test_flokzu"
+​
+<prototype>: Object { … }

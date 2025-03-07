@@ -31,7 +31,9 @@ function validacion(msg,boton){
         Flokzu.error( [[Solicitud valida?]] , "Ticket no valido, revisar datos o fecha para recoger" );
     }
 
+    console.log("Prueba de codigo");
     if(boton=="PASAR CON CORRESPONDENCIA" || boton=="INCIDENCIA EN GUÍA"){
+        console.log("Entra en la condicion");
         generarCodigoRespuesta();
     }
 
@@ -40,6 +42,20 @@ function validacion(msg,boton){
     }else{
         Flokzu.setHidden([[Archivo 1]]);
     }
+
+    if(boton=="PAQUETE ENVIADO"){
+        Flokzu.setRequired([[Numero de guia]]);
+    }else{
+        Flokzu.setEditable([[Numero de guia]]);
+    }
+
+    if(boton == "RG GENERADA"){
+        Flokzu.setFieldValue([[Se generó la RG?]],"SI");
+    }
+    if(boton == "RG NO GENERADA"){
+        Flokzu.setFieldValue([[Se generó la RG?]],"NO");
+    }
+    //Se generó la RG?
     
 }
 
@@ -170,7 +186,8 @@ function mostrarDireccion(){
     Flokzu.setRequired([[Cobertura para el código postal?]]);
     Flokzu.setRequired([[Nombre de quien recibe paquete]]);
     Flokzu.setRequired([[Número de contacto]]);
-    Flokzu.setRequired([[Calle y número]]);
+    Flokzu.setRequired([[Calle]]);
+    Flokzu.setRequired([[Número]]);
     Flokzu.setRequired([[Colonia]]);
     Flokzu.setRequired([[Ciudad/Localidad]]);
     Flokzu.setRequired([[Estado]]);
@@ -182,7 +199,8 @@ function ocultarDireccion(){
     Flokzu.setHidden([[Cobertura para el código postal?]]);
     Flokzu.setHidden([[Nombre de quien recibe paquete]]);
     Flokzu.setHidden([[Número de contacto]]);
-    Flokzu.setHidden([[Calle y número]]);
+    Flokzu.setHidden([[Calle]]);
+    Flokzu.setHidden([[Número]]);
     Flokzu.setHidden([[Colonia]]);
     Flokzu.setHidden([[Ciudad/Localidad]]);
     Flokzu.setHidden([[Estado]]);
@@ -200,6 +218,7 @@ function validar(bool){
 }
 function generarCodigoRespuesta(){
 
+    console.log("Entra a la funcion");
         Flokzu.setEditable([[Ticket]]);
     
  
@@ -208,16 +227,16 @@ function generarCodigoRespuesta(){
         var fecha = moment();
         
         var num = idTicket.split('-');
-    
-    
+        
         var sumaTotal = sumarDigitosIndividual(fecha.format("DDMMhh")) + sumarDigitosIndividual(num[1]);
         while(sumaTotal > 9){
             sumaTotal = sumarDigitosIndividual(sumaTotal);
         }
-    
+        
         
         var codigoRespuesta = fecha.format("DDMMhh") + "-" + num[1] + sumaTotal;
-    
+        
+        console.log('Prueba de codigo ${codigoRespuesta}');
         
         Flokzu.setFieldValue([[Código de respuesta]], codigoRespuesta);
 }
@@ -291,7 +310,7 @@ Flokzu.setHidden([[Fecha de cancelacion]]);
 function direccion(){
     if( Flokzu.getFieldValue([[Tipo de entrega]]) == "A domicilio"
     && Flokzu.getFieldValue([[Estado actual del estudiante]]) == "EGRESADO" 
-    && Flokzu.getFieldValue([[Estatus de titulacion]]) == "TITULADO" 
+    && (Flokzu.getFieldValue([[Estatus de titulacion]]) == "TITULADO" || Flokzu.getFieldValue([[Estatus de titulacion]]) == "NULL") 
     && (Flokzu.getFieldValue([[Campus]]) == "UTEL HIGHER" || Flokzu.getFieldValue([[Campus]]) == "UTEL STUDENT" )){
         mostrarDireccion();
     }else{
@@ -301,6 +320,7 @@ function direccion(){
 
 
 Flokzu.onInit(estados);
+Flokzu.onInit(direccion);
 Flokzu.onAction(validacion);
 Flokzu.onChange([[Tipo de entrega]], direccion);
 Flokzu.onChange([[Motivo de la solicitud]], nbt);
